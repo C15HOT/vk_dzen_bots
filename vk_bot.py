@@ -123,7 +123,7 @@ class VkUserBot:
 
 
 if __name__ == '__main__':
-    bot = VkUserBot(login='', password='')
+    bot = VkUserBot(login='89259922019', password='gibsoncsv16xp')
     #
     # data = asyncio.run(bot.get_recommendations(news_count=2))
 

@@ -162,6 +162,11 @@ class DzenParser:
 
 
     def enter_interest(self, interests: List[str]):
+        """
+        Подписка на интересы
+        :param interests: Список строк-названий категорий (в сокращенном виде, например для раздела "Красота и мода" нужно писать просто "Красота"
+        :return:
+        """
         self.authorization()
         for _ in range(1):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -196,7 +201,7 @@ class DzenParser:
             pass
 
 
-parser = DzenParser(login='leto2017a', password='gibsoncsv16xp')
+parser = DzenParser(login='', password='')
 
 parser.enter_interest(['Кино', 'Юмор'])
 

@@ -121,7 +121,7 @@ class DzenParser:
                         post_data['text'] = text
                         post_data['type'] = 'long'
                     except:
-                        print('херня')
+                        print('непонятный блок')
             data.append(post_data)
 
         for record in data:

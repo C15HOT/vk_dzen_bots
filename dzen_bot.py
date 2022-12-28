@@ -130,7 +130,10 @@ class DzenParser:
             subscribers_count = self.driver.find_element(By.CLASS_NAME, 'channel-counter__value-3W')
             record['subscribers_count'] = subscribers_count.text
             time.sleep(3)
-            self.driver.find_element(By.CLASS_NAME, 'auto-height-transition-block').click()
+            try:
+                self.driver.find_element(By.CLASS_NAME, 'auto-height-transition-block').click()
+            except:
+                pass
             channel_description = self.driver.find_element(By.CLASS_NAME, 'zen-ui-rich-text__text')
             record['channel_description'] = channel_description.text
 

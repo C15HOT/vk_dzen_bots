@@ -129,7 +129,7 @@ class DzenParser:
 
             subscribers_count = self.driver.find_element(By.CLASS_NAME, 'channel-counter__value-3W')
             record['subscribers_count'] = subscribers_count.text
-
+            time.sleep(3)
             self.driver.find_element(By.CLASS_NAME, 'auto-height-transition-block').click()
             channel_description = self.driver.find_element(By.CLASS_NAME, 'zen-ui-rich-text__text')
             record['channel_description'] = channel_description.text
@@ -201,12 +201,12 @@ class DzenParser:
             pass
 
 
-parser = DzenParser(login='', password='')
+parser = DzenParser(login='leto2017a', password='gibsoncsv16xp')
 
-parser.enter_interest(['Кино', 'Юмор'])
+# parser.enter_interest(['Кино', 'Юмор'])
 
-# data = parser.get_recomends()
-# pprint(data)
+data = parser.get_recomends()
+pprint(data)
 # channel_link = ['https://dzen.ru/rgo?lang=ru&country_code=ru&parent_rid=1697862782.96.1671896696738.45223&from_parent_id=-740625132394824576&from_parent_type=native&from_page=other_page']
 # parser.subscribe(channel_links=channel_link)
 #

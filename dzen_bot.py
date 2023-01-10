@@ -134,9 +134,25 @@ class DzenParser:
                 self.driver.find_element(By.CLASS_NAME, 'auto-height-transition-block').click()
             except:
                 pass
-            channel_description = self.driver.find_element(By.CLASS_NAME, 'zen-ui-rich-text__text')
+            try:
+                channel_description = self.driver.find_element(By.CLASS_NAME, 'zen-ui-rich-text__text')
+            except:
+                channel_description = None
             record['channel_description'] = channel_description.text
 
+        for record in data:
+            try:
+                self.driver.get(record['post_link'])
+            except:
+                continue
+
+            div = self.driver.find_element(By.CLASS_NAME, 'article-render')
+
+            text_blocks = div.find_elements(By.CLASS_NAME, 'article-render__block')
+            full_text = str()
+            for text_block in text_blocks:
+                full_text += text_block.text
+            record['full_text'] = full_text
         return data
 
     def subscribe(self, channel_links: List):
